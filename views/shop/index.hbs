@@ -1,0 +1,29 @@
+<h1>
+    {{title}}</h1>
+<p>Welcome to {{title}}</p>
+<div class="container">
+    {{# each products}}
+
+    <div class="row col-md-12 mt-5">
+        {{# each this}}
+        <div class="col-md-3">
+            <div class="card gallery">
+                <img class="card-img-top"
+                    src="{{this.imagePath}}"
+                    alt="Card image cap" class="img-responsive">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{this.title}}</h5>
+                    <p class="card-text text-justify description">{{this.description}}</p>
+
+                    <div class="clearfix form-inline">
+                        <div class="price mr-auto">${{this.price}}</div>
+                        <a href="#" class="btn btn-danger float-right">Add</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+
+</div>>>

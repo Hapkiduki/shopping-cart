@@ -1,0 +1,17 @@
+.gallery {
+    width: 15rem;
+}
+
+.gallery img {
+    max-height: 170px;
+}
+
+.gallery .price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.gallery .description{
+    font-size: 13px;
+    font-style: oblique;
+}

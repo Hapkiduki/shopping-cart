@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
+const MongoStore = require('mongo-connection')(session);
 
 
 //manage views partials hbs
@@ -49,7 +50,11 @@ app.use(cookieParser());
 app.use(session({
   secret: 'mysupersecret',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  }),
+  cookie:{ maxAge: 180 * 160 * 1000}
 }));
 
 app.use(flash());
@@ -60,6 +65,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.locals.loggin = req.isAuthenticated();
+  res.locals.session = req.session;
   next();
 })
 //routes use

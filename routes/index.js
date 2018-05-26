@@ -11,7 +11,6 @@ router.get('/', function (req, res, next) {
     let chunkSize = 4;
     for (let i = 0; i < products.length; i += chunkSize) {
       productsChunks.push(products.slice(i, i + chunkSize));
-
     }
     res.render('shop/index', {
       title: 'Home',
@@ -19,6 +18,10 @@ router.get('/', function (req, res, next) {
     });
   });
 
+});
+
+router.get('/add-to-cart/:id', (req, res, next) => {
+  let productId = req.params.id;
 });
 
 

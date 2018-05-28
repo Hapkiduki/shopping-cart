@@ -9,7 +9,8 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
-const MongoStore = require('mongo-connection')(session);
+//const MongoStore = require('mongo-connection')(session);
+const MongoStore = require('connect-mongo')(session);
 
 
 //manage views partials hbs
@@ -54,7 +55,9 @@ app.use(session({
   store: new MongoStore({
     mongooseConnection: mongoose.connection
   }),
-  cookie:{ maxAge: 180 * 160 * 1000}
+  cookie: {
+    maxAge: 180 * 160 * 1000
+  }
 }));
 
 app.use(flash());

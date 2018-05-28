@@ -13,8 +13,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-shopping-cart"> Cart</i>
+                <a class="nav-link" href="/shopping-cart/">
+                    <i class="fas fa-shopping-cart"></i>Cart <span class="badge badge-light badge-pill">
+                            {{session.cart.totalQty}}
+                            </span>
                 </a>
             </li>
             {{# if loggin }}
